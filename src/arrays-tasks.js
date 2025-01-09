@@ -20,8 +20,9 @@
  *    getIntervalArray(0, 100) => [ 0, 1, 2, ..., 100 ]
  *    getIntervalArray(3, 3) => [ 3 ]
  */
-function getIntervalArray(/* start, end */) {
-  throw new Error('Not implemented');
+function getIntervalArray(start, end) {
+  const length = end - start + 1;
+  return Array.from({ length }, (_, index) => start + index);
 }
 
 /**
@@ -37,8 +38,12 @@ function getIntervalArray(/* start, end */) {
  *    sumArrays([10, 20, 30], [5, 10, 15]) => [15, 30, 45]
  *    sumArrays([-1, 0, 1], [1, 2, 3, 4]) => [0, 2, 4, 4]
  */
-function sumArrays(/* arr1, arr2 */) {
-  throw new Error('Not implemented');
+function sumArrays(arr1, arr2) {
+  const maxLength = Math.max(arr1.length, arr2.length);
+  return Array.from(
+    { length: maxLength },
+    (_, i) => (arr1[i] || 0) + (arr2[i] || 0)
+  );
 }
 
 /**
@@ -55,6 +60,7 @@ function sumArrays(/* arr1, arr2 */) {
  */
 function findElement(/* arr, value */) {
   throw new Error('Not implemented');
+  // return arr.indexOf(value);
 }
 
 /**
@@ -74,7 +80,6 @@ function findElement(/* arr, value */) {
 function findAllOccurrences(/* arr, item */) {
   throw new Error('Not implemented');
 }
-
 /**
  * Removes falsy values from the specified array.
  * Falsy values: false, null, 0, "", undefined, and NaN.
@@ -151,7 +156,6 @@ function isSameLength(/* arr */) {
 function isValueEqualsIndex(/* arr */) {
   throw new Error('Not implemented');
 }
-
 /**
  * Inserts the item into specified array at specified index.
  *
